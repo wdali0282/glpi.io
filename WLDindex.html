@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLD</title>
+</head>
+<body>
+<style>
+.wlder{
+    vertical-align: top;
+}
+
+h4{
+    color: rgb(89, 0, 190);
+}
+
+body {
+  background-image: url("photo/istockphoto-2162055086-612x612.jpg"); 
+  background-size: cover;        /* L'image couvre toute la page */
+  background-position: center;   /* Centre l'image */
+  background-repeat: no-repeat;  /* Empêche la répétition */
+  
+}
+
+
+
+
+
+
+
+</style>
+    <h1>DOC realiser par dali walid</h1>
+    <table>
+        <tr>
+            
+            <td><p>cette version est uniquement pout (ubuntu 24.04)</p>                                    
+<img src="C:\Users\walid\Documents\WLD.index.httml\photo\GLPI-Feature.png" width="45%%"  class="okcss"  alt="">
+<h2>pour commencer il faut installer un server lamp (MYSQL):</h2>
+<h3>1 : mettre à jour le système</h3>
+<h4>sudo apt update && sudo apt upgrade -y</h4>
+
+<h3>2 : installer MariaDB</h3>
+<h4>sudo apt install mariadb-server -y</h4>
+
+<h3>3 : démarrer et activer le service MariaDB</h3>
+<h4>1: sudo systemctl start mariadb</h4>
+<h4>2: sudo systemctl enable mariadb</h4>
+<h4>3: sudo systemctl status mariadb</h4>
+
+<h3>4 : sécuriser MariaDB</h3>
+<h4>sudo mysql_secure_installation</h4>
+<p>Définir un mot de passe root
+Supprimer les comptes d’utilisateurs anonymes
+</p> <p>Désactiver l’accès root à distance
+Supprimer la base de données de test
+Recharger les tables d’autorisations</p>
+
+<h3>5 : créer un utilisateur et une base de données</h3>
+<h4>1: sudo mariadb -u root -p</h4>
+<h4>2: CREATE DATABASE db_example;</h4>
+<h4>3: CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'met_TON_mdp';</h4>
+<h4>4: GRANT ALL PRIVILEGES ON db_example.* TO 'webuser'@'localhost';</h4>
+<h4>5: FLUSH PRIVILEGES;</h4>
+<h4>6: EXIT;</h4>
+
+<h3>6 : tester l’accès</h3>
+<h4>1: mariadb -u webuser -p db_example</h4>
+<h4>2: SHOW TABLES;</h4></td>
+
+<td class="wlder"><h1>installation du GLPI</h1>
+<h3>Mis-à-jour des packages (pas obligatoir)</h3>
+<h4>sudo apt update</h4>
+
+<h3>Installation de PHP et Apache</h3>
+<h4>sudo apt -y install php 
+php-{curl,gd,imagick,intl,apcu,memcache,
+imap,mysql,cas,ldap,tidy,pear,xmlrpc,pspell,mbstring,json,
+iconv,xml,gd,xsl,zip,bz2}</h4>
+
+<h3>Installons ensuite Apache ainsi que son module PHP</h3>
+<h4>sudo apt-get -y install apache2 libapache2-mod-php</h4>
+
+<h3>telechargement de GLPI</h3>
+<h4>sudo apt-get -y install wget
+export VER="10.0.11"
+wget https://github.com/glpi-project/glpi/releases/download/$VER/glpi-$VER.tgz</h4>
+
+<h3>Décompressons maintenant l'archive téléchargée</h3>
+<h4>tar xvf glpi-$VER.tgz</h4>
+
+<h3>Il faut ensuite déplacer le dossier glpi dans 
+un répertoire plus adapté on a utiliser /var/www/html</h3>
+<h4>sudo mv glpi /var/www/html</h4>
+
+<h3>Donnons à l'utilisateur Apache les droits de propriétaire sur le répertoire</h3>
+<h4>sudo chown -R www-data:www-data /var/www/html/glpi</h4>
+
+<h3>redémarrer le service apache2 (par precotion)</h3>
+<h4>systemctl restart apache2</h4>
+
+<h2>maintenant rendez vous sur : </h2>
+<h3>http://IP_DE_VOTRE_SERVEUR/glpi</h3>
+
+
+
+
+
+</td>
+            
+        </tr>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
